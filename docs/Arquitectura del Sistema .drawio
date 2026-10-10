@@ -1,0 +1,31 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Página-1" id="Hkdu5De6joO1rsuP47m0">
+    <mxGraphModel dx="934" dy="643" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="se4sd7nyU46OTIxpan-P-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;CAPA 1: PRESENTACIÓN (Interfaz Consola)&amp;nbsp;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;- Menú interactivo (print/input)&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="390" x="200" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="se4sd7nyU46OTIxpan-P-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;CAPA 2: LÓGICA DE NEGOCIO (Core / Procesamiento)&amp;nbsp;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;&amp;nbsp;- Validaciones (try/except), Bucles (while/for), Cálculos&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="390" x="200" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="se4sd7nyU46OTIxpan-P-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&amp;nbsp;CAPA 3: ESTADO Y DATOS (Persistencia en Memoria)&amp;nbsp;&lt;div&gt;- Arreglo global de productos: inventario = []&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="390" x="200" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="se4sd7nyU46OTIxpan-P-5" edge="1" parent="1" source="se4sd7nyU46OTIxpan-P-1" style="endArrow=classic;html=1;rounded=0;exitX=0.556;exitY=0.98;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.577;entryY=-0.017;entryDx=0;entryDy=0;entryPerimeter=0;" target="se4sd7nyU46OTIxpan-P-2" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="390" y="350" as="sourcePoint" />
+            <mxPoint x="420" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="se4sd7nyU46OTIxpan-P-6" edge="1" parent="1" source="se4sd7nyU46OTIxpan-P-2" style="endArrow=classic;html=1;rounded=0;entryX=0.538;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.536;exitY=1.033;exitDx=0;exitDy=0;exitPerimeter=0;" target="se4sd7nyU46OTIxpan-P-3" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="460" y="390" as="sourcePoint" />
+            <mxPoint x="648" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
