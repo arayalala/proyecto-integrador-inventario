@@ -1,0 +1,113 @@
+# =========================================================
+# PROYECTO INTEGRADOR: Sistema de Gestión de Inventario
+# AUTORA: Arianna Ayala Landázuri
+# LENGUAJE: Python 3
+# =========================================================
+
+# Estructura de almacenamiento principal (Colección en memoria)
+inventario = []
+
+def registrar_producto():
+    """Solicita datos al usuario, valida entradas numéricas mediante
+    bucles while y añade el nuevo producto a la colección."""
+    print("\n--- REGISTRO DE PRODUCTO ---")
+    nombre = input("Ingrese el nombre del producto: ").strip().capitalize()
+    
+    # Bucle repetitivo para validar precio positivo
+    while True:
+        try:
+            precio = float(input("Ingrese el precio unitario: $"))
+            if precio > 0:
+                break
+            else:
+                print("Error: El precio debe ser estrictamente mayor a 0.")
+        except ValueError:
+            print("Error: Entrada inválida. Ingrese un valor numérico.")
+            
+    # Bucle repetitivo para validar stock positivo o cero
+    while True:
+        try:
+            cantidad = int(input("Ingrese la cantidad en stock: "))
+            if cantidad >= 0:
+                break
+            else:
+                print("Error: La cantidad no puede ser un número negativo.")
+        except ValueError:
+            print("Error: Entrada inválida. Ingrese un número entero.")
+            
+    # Creación y almacenamiento del registro
+    producto = {
+        "nombre": nombre,
+        "precio": precio,
+        "cantidad": cantidad
+    }
+    inventario.append(producto)
+    print(f"Éxito: Producto '{nombre}' registrado correctamente.")
+
+def mostrar_inventario():
+    """Evalúa si existen registros y recorre la colección con un bucle for
+    para calcular los subtotales y el valor financiero total."""
+    print("\n--- INVENTARIO ACTUAL ---")
+    if len(inventario) == 0:
+        print("El inventario se encuentra actualmente vacío.")
+    else:
+        total_acumulado = 0
+        print(f"{'Producto':<20} | {'Precio':<10} | {'Stock':<8} | {'Subtotal':<10}")
+        print("-" * 55)
+        for item in inventario:
+            subtotal = item["precio"] * item["cantidad"]
+            total_acumulado += subtotal
+            print(f"{item['nombre']:<20} | ${item['precio']:<9.2f} | {item['cantidad']:<8} | ${subtotal:<9.2f}")
+        print("-" * 55)
+        print(f"VALOR TOTAL DEL INVENTARIO: ${total_acumulado:.2f}")
+
+def buscar_producto():
+    """Busca coincidencias por nombre dentro del inventario utilizando
+    un bucle for y condicionales de comparación."""
+    print("\n--- BÚSQUEDA DE PRODUCTO ---")
+    if not inventario:
+        print("No hay productos registrados para realizar búsquedas.")
+        return
+        
+    busqueda = input("Ingrese el nombre del producto a buscar: ").strip().lower()
+    encontrado = False
+    for item in inventario:
+        if item["nombre"].lower() == busqueda:
+            print("\nResultado encontrado:")
+            print(f" * Producto: {item['nombre']}")
+            print(f" * Precio unitario: ${item['precio']:.2f}")
+            print(f" * Existencias: {item['cantidad']} unidades")
+            encontrado = True
+            break
+            
+    if not encontrado:
+        print(f"Aviso: El artículo '{busqueda}' no existe en el registro.")
+
+# =========================================================
+# BUCLE PRINCIPAL DE EJECUCIÓN (Interfaz de Consola)
+# =========================================================
+ejecutando = True
+
+while ejecutando:
+    print("\n==========================================")
+    print("      SISTEMA DE GESTIÓN DE INVENTARIO    ")
+    print("==========================================")
+    print("1. Registrar nuevo producto")
+    print("2. Ver inventario completo")
+    print("3. Buscar producto")
+    print("4. Salir del programa")
+    
+    opcion = input("Seleccione una opción (1-4): ").strip()
+    
+    if opcion == "1":
+        registrar_producto()
+    elif opcion == "2":
+        mostrar_inventario()
+    elif opcion == "3":
+        buscar_producto()
+    elif opcion == "4":
+        print("\nFinalizando ejecución. ¡Gracias por usar el sistema!")
+        ejecutando = False
+    else:
+        print("\nError: Opción inválida. Debe ingresar un valor entre 1 y 4.")
+
